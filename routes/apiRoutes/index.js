@@ -18,14 +18,20 @@ router.post('/notes', (req, res) => {
     JSON.stringify(notes, null, 2)
   );
   console.info(note);
-  // saveNote(note);
-  console.log(notes);
   res.json(notes);
 });
 
-// router.delete('/notes/:id', (req, res) => {
-//   console.info(`${req.delete} request received to delete a note`);
-  
-// })
+router.delete('/notes/:id', (req, res) => {
+  console.info(`${req.method} request received to delete a note`);
+  let filteredData = [];
+  const params = [req.params.id];
+  fs.readFile(path.join(__dirname, '../../db/db.json'), (err, data) => {
+    if (err) throw err;
+    return filteredData = JSON.parse(data).filter(x => x.id != `${params}`)
+      .then(fs.writeFile(
+        path.join(__dirname, '../../db/db.json'),
+        JSON.stringify(filteredData, null, 2)));
+      });
+});
 
 module.exports = router;
