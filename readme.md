@@ -8,12 +8,22 @@
 
   This application allows the user to save and review notes for future reference. It is a quick way to write something down and can be used with any internet connection.
 
-  ![Screenshot of the homepage](./assets/images/homepage)
-  ![Screenshot of the notes page](./assets/images/notes-page)
+  ![Screenshot of the homepage](./assets/images/homepage.png)
+  ![Screenshot of the notes page](./assets/images/notes-page.png)
 
   ## Usage
 
-  Navigate to the [homepage](https://evening-harbor-23999.herokuapp.com/) to use this application.
+  1. Navigate to the [homepage](https://evening-harbor-23999.herokuapp.com/) to use this application.
+  2. Click "Get Started"
+  
+  To create a new note:
+  
+  1. Click on "Note Title" and type in a title for your note
+  2. Click on "Note text" and type in the text
+  3. Click the save file icon that appears to save your note
+
+  To review a note click on the note you would like to review on the left hand side of the page. 
+
 
   ## Credits
 
