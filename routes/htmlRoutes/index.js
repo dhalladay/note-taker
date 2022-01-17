@@ -10,8 +10,8 @@ router.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/notes.html'));
 });
 
-router.post('/notes', (req, res) => {
-  fs.writeFileSync(path.join(__dirname, '../../public/notes.html'))
-})
+router.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
+});
 
 module.exports = router;
