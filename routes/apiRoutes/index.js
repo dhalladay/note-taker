@@ -1,6 +1,6 @@
 //declare dependencies
 const router = require('express').Router();
-const notes = require('../../db/db.json');
+let notes = require('../../db/db.json');
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
@@ -8,7 +8,7 @@ const createNote = require('../../lib/notes');
 
 //GET route
 router.get('/notes', (req, res) => {
-  return res.json(notes);
+  res.json(notes);
 });
 
 //POST route
@@ -28,12 +28,13 @@ router.post('/notes', (req, res) => {
 router.delete('/notes/:id', (req, res) => {
   //Advise that delete request was received
   console.info(`${req.method} request received to delete a note`);
-  const params = [req.params.id];
+  const params = req.params.id;
   //user .filter() to create a new array without the deleted note
   const filteredArray = notes.filter(x => x.id != `${params}`);
   //rewrite the notes to db.json
+  notes = filteredArray;
   createNote(filteredArray);
-  return res.json(filteredArray);
+  res.end()
   });
 
 module.exports = router;
